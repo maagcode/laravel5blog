@@ -8,15 +8,15 @@ use App\Http\Requests;
 
 class PageController extends Controller
 {
-    public function getIndex(){
+    public function index(){
         return view('pages.welcome');
     }
 
-    public function getAbout(){
-        return view(pages.about);
+    public function about(){
+        return view('pages.about');
     }
 
-    public function getContact(){
-        return view(pages.contact);
+    public function contact(){
+        return view('pages.contact');
     }
 }

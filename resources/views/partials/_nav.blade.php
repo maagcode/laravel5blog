@@ -9,16 +9,16 @@
         <span class="icon-bar"></span>
       </button>
         <a class="navbar-brand" href="/">
-          mauris.alonso
+          My_Blog
         </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav nav-pills pull-right">
-        <li class="{{ Request::is('/') ? "active" : "" }}"><a href="/">_home </a></li>
-        <li class="{{ Request::is('about') ? "active" : "" }}"><a href="/about">_about</a></li>
-        <li class="{{ Request::is('contact') ? "active" : "" }}"><a href="/contact">_contact</a></li>
+        <li class="{{ Request::is('/') ? "active" : "" }}"><a href="/">Home </a></li>
+        <li class="{{ Request::is('about') ? "active" : "" }}"><a href="/about">About</a></li>
+        <li class="{{ Request::is('contact') ? "active" : "" }}"><a href="/contact">Contact</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
           <ul class="dropdown-menu">
