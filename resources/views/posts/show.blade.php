@@ -26,7 +26,7 @@
                 {!! Html::linkRoute('posts.index', '<< See All Posts', [], ['class' => 'btn btn-default btn-block']) !!}
             </div>
             <div class="col-sm-4">
-                {!! Html::linkRoute('posts.edit', 'Edit', [$post->id], ['class' => 'btn btn-primary btn-block')] !!}
+                {!! Html::linkRoute('posts.edit', 'Edit', [$post->id], ['class' => 'btn btn-primary btn-block']) !!}
             </div>
             <div class="col-sm-4">
                 {!! Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'DELETE']) !!}

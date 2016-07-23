@@ -19,7 +19,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        // pass all the posts into a variable and order it by id; add pagination
+        $posts = Post::orderBy('id', 'desc')->paginate(5);
+
+        //return the view passing the variable
+        return view('posts.index')->withPosts($posts);
     }
 
     /**
@@ -126,6 +130,15 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // find the Post passed in a variable and delete it
+        $post = Post::find($id);
+
+        $post->delete();
+
+        // Flash message of success deletion
+        Session::flash('success', 'Posts successfully deleted!');
+
+        // redirectin back to 'index'
+        return redirect()->route('posts.index');
     }
 }
