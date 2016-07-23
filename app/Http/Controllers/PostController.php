@@ -44,7 +44,7 @@ class PostController extends Controller
         $this->validate($request, [
             'title' => 'required|max:255',
             'body' => 'required'
-        ])
+        ]);
 
 
         // saving to database
@@ -58,7 +58,7 @@ class PostController extends Controller
         Session::flash('success', 'Post Successfully Created!');
 
         // Redirecting to 'posts.show'
-        redirect()->route('posts.show', $post->id);
+        return redirect()->route('posts.show', $post->id);
 
     }
 
@@ -70,7 +70,10 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        // Find all post in db declaring a variable, then return it to the 'posts.show' password_get_info
+        $post = Post::find($id);
+
+        return view('posts.show')->withPost($post);
     }
 
     /**
