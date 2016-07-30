@@ -34,5 +34,8 @@ Route::get('contact', 'PageController@contact');
 Route::get('blog/{slug}', ['as' => 'blog.single', 'uses' => 'BlogController@single'])->where('slug', '[\w\d\-\_]+');
 Route::get('blog', ['uses' => 'BlogController@blogIndex', 'as' => 'blog.index']);
 
-// Resources routes
+// Categories routes
+Route::resource('categories', 'CategoryController', ['except' => ['create']]);
+
+// Posts routes
 Route::resource('posts', 'PostController');

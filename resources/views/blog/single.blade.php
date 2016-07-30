@@ -10,6 +10,9 @@
             <p>
                 {{ $post->body }}
             </p>
+            <p>
+                Posted in: {{ $post->category->name }}
+            </p>
         </div>
     </div>
 
