@@ -37,5 +37,8 @@ Route::get('blog', ['uses' => 'BlogController@blogIndex', 'as' => 'blog.index'])
 // Categories routes
 Route::resource('categories', 'CategoryController', ['except' => ['create']]);
 
+// Tags routes
+Route::resource('tags', 'TagController', ['except' => ['create']]);
+
 // Posts routes
 Route::resource('posts', 'PostController');
