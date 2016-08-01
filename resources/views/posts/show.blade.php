@@ -12,6 +12,14 @@
 
     <hr>
 
+    <div class="tags">
+        @foreach ($post->tags as $tag)
+            <span class="label label-default">{{ $tag->name }}</span>
+        @endforeach
+    </div>
+
+    <hr>
+
     <div class="well">
         <dl class="dl-horizontal">
             <dt>URL Slug:</dt>

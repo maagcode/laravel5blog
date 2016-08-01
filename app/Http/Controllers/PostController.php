@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\Post;
 
+use App\Tag;
+
 use App\Category;
 
 use Session;
@@ -43,7 +45,8 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('posts.create')->withCategories($categories);
+        $tags = Tag::all();
+        return view('posts.create')->withCategories($categories)->withTags($tags);
     }
 
     /**
@@ -71,6 +74,8 @@ class PostController extends Controller
         $post->body = $request->body;
 
         $post->save();
+
+        $post->tags()->sync($request->tags, false);
 
         // Flash message indicating "success" of the post create_function
         Session::flash('success', 'Post Successfully Created!');
@@ -110,7 +115,13 @@ class PostController extends Controller
             $cats[$category->id] = $category->name;
         }
 
-        return view('posts.edit')->withPost($post)->withCategories($cats);
+        $tags = Tag::all();
+        $tags2 = [];
+        foreach ($tags as $tag) {
+            $tags2[$tag->id] = $tag->name;
+        }
+
+        return view('posts.edit')->withPost($post)->withCategories($cats)->withTags($tags2);
     }
 
     /**
@@ -141,7 +152,7 @@ class PostController extends Controller
         'body' => 'required'
 
     ]);
-    
+
     }
         // save updated data to DB
         $post = Post::find($id);
@@ -152,6 +163,14 @@ class PostController extends Controller
         $post->body = $request->input('body');
 
         $post->save();
+
+        // Statement to eliminate 'empty filed' error whiele editing and passing 0 tags
+        if (isset($request->tags)) {
+            $post->tags()->sync($request->tags);
+        } else {
+            $post->tags()->sync([]);
+        }
+
         // redirect + flash message of success
         Session::flash('success', 'Posts was successfully updated!');
 
