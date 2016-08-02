@@ -20,7 +20,7 @@
 
                     <tr>
                         <th>{{ $tag->id }}</th>
-                        <th>{{ $tag->name }}</th>
+                        <th><a href="{{ route('tags.show', $tag->id) }}">{{ $tag->name }}</a></th>
                     </tr>
 
                     @endforeach

@@ -188,6 +188,7 @@ class PostController extends Controller
     {
         // find the Post passed in a variable and delete it
         $post = Post::find($id);
+        $post->tags()->detach();
 
         $post->delete();
 
