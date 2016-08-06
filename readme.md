@@ -8,8 +8,14 @@ Created full CRUD and commented it for ease of understanding and simple customiz
 
 Simple tools were used in the project like:
 
-- Bootstrap
-- Laravel Collective (HTML & Forms)
+- Bootstrap ( http://getbootstrap.com/ )
+- Laravel Collective (HTML & Forms) ( https://laravelcollective.com/ )
+- Select2.JS ( https://select2.github.io/ )
+- Parley.JS ( http://parsleyjs.org/ )
+
+    and ...
+
+- Laravel 5.2 Official Documentation ( https://laravel.com/docs/5.2 )
 
 ## Project still in process...
 
