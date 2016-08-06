@@ -7,6 +7,8 @@
 
     {!! Html::style('css/select2.min.css') !!}
 
+    {!! Html::style('css/parsley.css') !!}
+
 @stop
 
 
@@ -16,7 +18,7 @@
         <div class="col-md-12">
             <h1>Create New Post</h1>
 
-            {!! Form::open(array('route' => 'posts.store')) !!}
+            {!! Form::open(['route' => 'posts.store', 'data-parsley-validate' => '']) !!}
 
                 {{ Form::label('title', 'Title:') }}
                 {{ Form::text('title', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '255']) }}
@@ -65,5 +67,7 @@
     <script type="text/javascript">
         $('.select2-multi').select2();
     </script>
+
+    {!! Html::script('js/parsley.js') !!}
 
 @stop
