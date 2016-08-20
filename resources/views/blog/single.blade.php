@@ -16,4 +16,14 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="comment-form">
+            {{ Form::open(['route' => 'comments.store', $post->id, 'method' => 'POST']) }}
+
+                
+
+            {{ Form::close() }}
+        </div>
+    </div>
+
 @stop

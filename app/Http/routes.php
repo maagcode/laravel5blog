@@ -42,3 +42,6 @@ Route::resource('tags', 'TagController', ['except' => ['create']]);
 
 // Posts routes
 Route::resource('posts', 'PostController');
+
+// Comments routes
+Route::post('comments/{post_id}', ['uses' => 'CommentsController@store', 'as' => 'comments.store']);
